@@ -4,15 +4,14 @@
 
 @layer base {
   :root {
-    /* Light theme optimized for Oggy & Cockroaches theme */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 24 95% 53%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96%;
     --secondary-foreground: 222.2 84% 4.9%;
     --muted: 210 40% 96%;
@@ -23,81 +22,42 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 24 95% 53%;
-    --radius: 0.75rem;
-    
-    /* Custom Oggy theme colors */
-    --oggy-orange: 24 95% 53%;
-    --oggy-orange-light: 31 91% 59%;
-    --oggy-blue: 217 91% 60%;
-    --oggy-green: 142 71% 45%;
-    --oggy-purple: 262 83% 58%;
-    --oggy-pink: 330 81% 60%;
-    --cockroach-gray: 220 9% 46%;
-    --cockroach-dark: 222 84% 5%;
-    --gradient-start: 248 95% 53%;
-    --gradient-end: 142 71% 45%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
   }
 
-  /* Force light theme - disable dark mode */
-  .dark,
-  [data-theme="dark"],
-  html[data-theme="dark"],
-  body[data-theme="dark"] {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 24 95% 53%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 24 95% 53%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
   }
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
-  * {
-    border-color: hsl(var(--border));
-  }
-  
-  html {
-    /* Force light theme */
-    color-scheme: light;
-  }
-  
   body {
-    @apply bg-background text-foreground;
+    background-color: white;
+    color: #111827;
     font-feature-settings: "rlig" 1, "calt" 1;
-    /* Enforce light theme background */
-    background: linear-gradient(135deg, #fafafa 0%, #f8fafc 50%, #f1f5f9 100%);
-    color: #1e293b;
-    /* Override any dark theme styles */
-    --tw-bg-opacity: 1;
-  }
-  
-  /* Global light theme enforcement */
-  .dark body,
-  [data-theme="dark"] body,
-  html[data-theme="dark"] body {
-    background: linear-gradient(135deg, #fafafa 0%, #f8fafc 50%, #f1f5f9 100%) !important;
-    color: #1e293b !important;
-  }
-  
-  /* Ensure all components use light theme */
-  * {
-    --tw-bg-opacity: 1;
-    --tw-text-opacity: 1;
   }
 }
 
@@ -315,7 +275,7 @@
   }
 
   .cartoon-btn-secondary {
-    @apply inline-flex items-center justify-center px-4 py-2 rounded-full font-bold text-gray-800 bg-white border-2 border-gray-800 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl;
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-full font-bold text-gray-800 bg-white border-4 border-gray-800 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl;
   }
 
   .cartoon-progress {
@@ -431,35 +391,6 @@
   }
 }
 
-/* Additional Border Utilities */
-.border-3 {
-  border-width: 3px;
-}
-
-.border-4 {
-  border-width: 4px;
-}
-
-/* Enhanced Animations for Oggy Images */
-.floating-element {
-  animation: float 4s ease-in-out infinite;
-}
-
-.bouncing-element {
-  animation: bounce 2s infinite;
-}
-
-.wiggling-element {
-  animation: wiggle 1.5s ease-in-out infinite;
-}
-
-/* New Animation for rotating elements */
-@keyframes spin-slow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Enhanced Banking Hero Sections */
 .banking-hero {
   background: 
     radial-gradient(circle at 10% 20%, rgba(251, 146, 60, 0.3) 0%, transparent 20%),
@@ -482,115 +413,28 @@
     linear-gradient(45deg, #ecfdf5 0%, #d1fae5 100%);
 }
 
-/* Enhanced Button Animations */
-.group:hover .group-hover\:animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-.group:hover .group-hover\:animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Enhanced Border Utilities */
-.border-3 {
-  border-width: 3px;
-}
-
-.border-4 {
-  border-width: 4px;
-}
-
-/* Enhanced Animations for Oggy Images */
-.floating-element {
-  animation: float 4s ease-in-out infinite;
-}
-
-.bouncing-element {
-  animation: bounce 2s infinite;
-}
-
-.wiggling-element {
-  animation: wiggle 1.5s ease-in-out infinite;
-}
-
-/* New Animation for rotating elements */
-@keyframes spin-slow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Enhanced Banking Hero Sections */
-.banking-hero {
-  background: 
-    radial-gradient(circle at 10% 20%, rgba(251, 146, 60, 0.3) 0%, transparent 20%),
-    radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.3) 0%, transparent 20%),
-    radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.2) 0%, transparent 30%),
-    linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-}
-
-.vesting-section {
-  background: 
-    radial-gradient(circle at 70% 30%, rgba(236, 72, 153, 0.3) 0%, transparent 25%),
-    radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.3) 0%, transparent 25%),
-    linear-gradient(225deg, #fdf4ff 0%, #f3e8ff 100%);
-}
-
-.staking-zone {
-  background: 
-    radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.4) 0%, transparent 30%),
-    radial-gradient(circle at 20% 80%, rgba(168, 85, 247, 0.3) 0%, transparent 25%),
-    linear-gradient(45deg, #ecfdf5 0%, #d1fae5 100%);
-}
-
-/* Enhanced Button Animations */
-.group:hover .group-hover\:animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-.group:hover .group-hover\:animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Mobile Responsiveness */
 .mobile-optimized {
-  transition: all 0.3s ease-out;
+  @apply transition-all duration-300 ease-out;
 }
 
 @media (max-width: 768px) {
-  .floating-element {
-    animation: float 3s ease-in-out infinite;
-  }
-  
-  .bouncing-element {
-    animation: bounce 1.5s infinite;
-  }
-  
-  .wiggling-element {
-    animation: wiggle 1s ease-in-out infinite;
-  }
-  
   .oggy-character {
-    width: 4rem;
-    height: 4rem;
+    @apply w-16 h-16;
   }
   
   .cockroach-character {
-    width: 3rem;
-    height: 3rem;
+    @apply w-12 h-12;
   }
   
   .comic-speech-bubble {
-    padding: 1rem;
-    font-size: 1.125rem;
+    @apply p-4 text-lg;
   }
   
   .cartoon-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    @apply px-4 py-2 text-sm;
   }
 }
 
-/* Responsive Grid Enhancement */
 .responsive-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -602,112 +446,4 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-}
-
-/* Enhanced fade-in animation */
-.fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Enhanced focus states for accessibility */
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid hsl(var(--ring));
-  outline-offset: 2px;
-}
-
-/* Light theme button enhancements */
-.light-theme-btn {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
-  border: 3px solid #1f2937;
-  color: white;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.light-theme-btn:hover {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 30%, #92400e 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-/* Light theme card enhancements */
-.light-theme-card {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
-  border: 3px solid #e2e8f0;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-
-.light-theme-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  border-color: #cbd5e1;
-}
-
-/* Additional light theme utilities */
-.light-section {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  margin: 1rem 0;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-.light-text-primary {
-  color: #1e293b;
-}
-
-.light-text-secondary {
-  color: #475569;
-}
-
-.light-text-muted {
-  color: #64748b;
-}
-
-.light-border {
-  border-color: #e2e8f0;
-}
-
-.light-bg-primary {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-}
-
-.light-bg-secondary {
-  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-}
-
-/* Enhanced animations for light theme */
-.light-hover-lift:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-}
-
-/* Override any remaining dark theme styles */
-.dark .light-theme-card,
-.dark .light-section,
-.dark .light-bg-primary,
-.dark .light-bg-secondary {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
-  color: #1e293b !important;
-}
-
-.dark .light-text-primary {
-  color: #1e293b !important;
-}
-
-.dark .light-text-secondary {
-  color: #475569 !important;
-}
-
-.dark .light-text-muted {
-  color: #64748b !important;
 }

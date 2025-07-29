@@ -1,0 +1,429 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { 
+  TrendingUp, 
+  Shield, 
+  Coins, 
+  Users, 
+  ArrowRight, 
+  Sparkles,
+  Zap,
+  Target,
+  Award,
+  Activity
+} from 'lucide-react'
+
+export default function HomePage() {
+  const [mounted, setMounted] = useState(false)
+  const [activeFeature, setActiveFeature] = useState(0)
+
+  useEffect(() => {
+    setMounted(true)
+    const interval = setInterval(() => {
+      setActiveFeature((prev) => (prev + 1) % 4)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
+
+  if (!mounted) return null
+
+  const features = [
+    {
+      icon: <Coins className="w-8 h-8" />,
+      title: "Smart Vesting",
+      description: "Advanced token vesting with custom schedules, cliff periods, and milestone-based releases",
+      color: "from-blue-500 to-green-500"
+    },
+    {
+      icon: <TrendingUp className="w-8 h-8" />,
+      title: "DeFi Banking",
+      description: "Complete banking services including lending, borrowing, and high-yield savings accounts",
+      color: "from-orange-500 to-pink-500"
+    },
+    {
+      icon: <Shield className="w-8 h-8" />,
+      title: "Enterprise Security",
+      description: "Multi-signature wallets, time-locked operations, and comprehensive audit trails",
+      color: "from-purple-500 to-blue-500"
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: "Team Management",
+      description: "Bulk employee onboarding, HR management tools, and automated compliance reporting",
+      color: "from-green-500 to-teal-500"
+    }
+  ]
+
+  const stats = [
+    { label: "Total Value Locked", value: "$2.4M", icon: <Activity className="w-5 h-5" /> },
+    { label: "Active Companies", value: "150+", icon: <Target className="w-5 h-5" /> },
+    { label: "Vesting Schedules", value: "3,200+", icon: <Award className="w-5 h-5" /> },
+    { label: "Happy Employees", value: "12,000+", icon: <Users className="w-5 h-5" /> },
+  ]
+
+  return (
+    <div className="space-y-20">
+      {/* Hero Section */}
+      <section className="relative py-20">
+        <div className="text-center space-y-10">
+          {/* Animated Characters Header */}
+          <div className="flex justify-center items-center space-x-6 mb-12">
+            <img 
+              src="/oc1.png" 
+              alt="Happy Oggy" 
+              className="w-20 h-20 md:w-24 md:h-24 rounded-full shadow-2xl floating-element bg-gradient-to-br from-orange-100 to-blue-100 p-2 border-3 border-orange-300"
+            />
+            <div className="text-6xl animate-bounce">💰</div>
+            <img 
+              src="/oc6.png" 
+              alt="Main Oggy" 
+              className="w-24 h-24 md:w-32 md:h-32 rounded-full shadow-2xl bouncing-element bg-gradient-to-br from-white to-orange-50 p-2 border-4 border-orange-400"
+            />
+            <div className="text-5xl wiggling-element">🏦</div>
+            <img 
+              src="/oc2.png" 
+              alt="Excited Oggy" 
+              className="w-20 h-20 md:w-24 md:h-24 rounded-full shadow-2xl floating-element bg-gradient-to-br from-blue-100 to-green-100 p-2 border-3 border-blue-300"
+            />
+          </div>
+
+          <div className="space-y-8">
+            <h1 className="text-5xl md:text-8xl font-bold leading-tight">
+              <span className="bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent">Token</span>{' '}
+              <span className="text-gray-800 dark:text-gray-200">&</span>{' '}
+              <span className="bg-gradient-to-r from-gray-700 via-gray-800 to-black bg-clip-text text-transparent">Vesting</span>
+              <br />
+              <span className="bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 bg-clip-text text-transparent text-4xl md:text-6xl">
+                Made Simple
+              </span>
+            </h1>
+            
+            <div className="relative max-w-4xl mx-auto bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm border-4 border-orange-300 dark:border-orange-500 rounded-3xl p-8 shadow-2xl">
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                <img 
+                  src="/oc3.png" 
+                  alt="Speaking Oggy" 
+                  className="w-12 h-12 rounded-full bg-white p-1 border-2 border-orange-400 wiggling-element"
+                />
+              </div>
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-orange-300 dark:border-t-orange-500"></div>
+              
+              <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-semibold leading-relaxed">
+                <span className="text-2xl">🎭</span> Watch Oggy manage your token schedules while keeping 
+                those sneaky cockroaches (bugs) away from your precious 
+                allocations! Time-locked, secure, and hilarious! <span className="text-2xl">🐱✨</span>
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
+              <Link 
+                href="/banking" 
+                className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 text-white font-bold text-lg rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 border-3 border-white"
+              >
+                <span className="mr-3 text-2xl">🏦</span>
+                Start Banking Adventure
+                <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link 
+                href="/vesting" 
+                className="group relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 text-white font-bold text-lg rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 border-3 border-white"
+              >
+                <span className="mr-3 text-2xl">⏰</span>
+                Create Token Vesting
+                <Sparkles className="w-5 h-5 ml-3 group-hover:rotate-180 transition-transform duration-300" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {stats.map((stat, index) => (
+          <div 
+            key={stat.label} 
+            className="relative bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm border-3 border-orange-200 dark:border-orange-400 rounded-2xl p-6 text-center shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 fade-in-up" 
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <div className="p-3 bg-gradient-to-r from-orange-400 to-blue-500 rounded-full text-white shadow-lg">
+                {stat.icon}
+              </div>
+            </div>
+            <div className="pt-6">
+              <div className="text-4xl font-bold bg-gradient-to-r from-orange-500 via-blue-500 to-green-500 bg-clip-text text-transparent mb-2">
+                {stat.value}
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                {stat.label}
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Features Section */}
+      <section className="space-y-16">
+        <div className="text-center">
+          <div className="flex justify-center items-center gap-4 mb-6">
+            <img 
+              src="/oc4.png" 
+              alt="Feature Oggy" 
+              className="w-16 h-16 rounded-full shadow-lg floating-element"
+            />
+            <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-orange-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
+              Platform Features
+            </h2>
+            <img 
+              src="/oc5.png" 
+              alt="Happy Feature Oggy" 
+              className="w-16 h-16 rounded-full shadow-lg wiggling-element"
+            />
+          </div>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
+            Everything you need for comprehensive token management and DeFi banking, 
+            all wrapped in a delightful and secure experience! Let Oggy guide your financial journey! 🚀
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className={`relative bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm border-4 border-orange-200 dark:border-orange-400 rounded-3xl p-8 cursor-pointer transition-all duration-500 hover:shadow-2xl hover:scale-105 ${
+                activeFeature === index ? 'shadow-2xl scale-105 border-orange-400 dark:border-orange-300' : ''
+              }`}
+              onMouseEnter={() => setActiveFeature(index)}
+            >
+              <div className="absolute -top-6 left-8">
+                <div className={`inline-flex p-4 rounded-full bg-gradient-to-r ${feature.color} text-white shadow-2xl border-3 border-white`}>
+                  {feature.icon}
+                </div>
+              </div>
+              
+              <div className="absolute -top-4 right-8">
+                <img 
+                  src={`/oc${(index % 5) + 1}.png`} 
+                  alt={`Feature ${index + 1} Oggy`} 
+                  className="w-12 h-12 rounded-full shadow-lg bg-white p-1 border-2 border-orange-300 floating-element opacity-70"
+                />
+              </div>
+              
+              <div className="pt-8">
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
+                  {feature.title}
+                  <span className="text-2xl">
+                    {index === 0 && '⏰'}
+                    {index === 1 && '🏦'}
+                    {index === 2 && '🛡️'}
+                    {index === 3 && '👥'}
+                  </span>
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                  {feature.description}
+                </p>
+                
+                <div className="mt-6 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span className="text-sm text-green-600 dark:text-green-400 font-medium">Active & Secure</span>
+                  </div>
+                  <div className="text-2xl opacity-50">
+                    {activeFeature === index ? '✨' : '💤'}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="space-y-16">
+        <div className="text-center">
+          <div className="flex justify-center items-center gap-4 mb-6">
+            <img 
+              src="/oc6.png" 
+              alt="Tutorial Oggy" 
+              className="w-20 h-20 rounded-full shadow-xl bouncing-element bg-gradient-to-br from-white to-orange-50 p-2 border-3 border-orange-400"
+            />
+          </div>
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent mb-4">
+            🎯 How Oggy's Magic Works
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Follow these simple steps to start your DeFi journey with Oggy! 🐱✨
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {[
+            {
+              step: "1",
+              title: "Connect & Verify",
+              description: "Link your Solana wallet and let Oggy verify your identity securely",
+              emoji: "🔐",
+              image: "/oc1.png"
+            },
+            {
+              step: "2", 
+              title: "Choose Your Adventure",
+              description: "Create vesting schedules, open banking accounts, or explore staking options",
+              emoji: "⚙️",
+              image: "/oc2.png"
+            },
+            {
+              step: "3",
+              title: "Earn & Manage",
+              description: "Watch your assets grow while Oggy keeps everything secure and fun",
+              emoji: "💰",
+              image: "/oc3.png"
+            }
+          ].map((item, index) => (
+            <div 
+              key={item.step} 
+              className="relative group"
+            >
+              <div className="relative bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm border-4 border-orange-200 dark:border-orange-400 rounded-3xl p-8 text-center shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-500">
+                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+                  <div className="w-16 h-16 bg-gradient-to-r from-orange-400 to-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-2xl border-4 border-white">
+                    {item.step}
+                  </div>
+                </div>
+                
+                <div className="absolute -top-4 -right-4">
+                  <img 
+                    src={item.image} 
+                    alt={`Step ${item.step} Oggy`} 
+                    className="w-16 h-16 rounded-full shadow-xl bg-white p-2 border-3 border-orange-300 floating-element group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                
+                <div className="pt-12">
+                  <div className="text-6xl mb-4 group-hover:animate-bounce">
+                    {item.emoji}
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+                
+                {index < 2 && (
+                  <div className="hidden md:block absolute -right-6 top-1/2 transform -translate-y-1/2 text-4xl text-orange-400 animate-pulse">
+                    →
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-16 text-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-100 via-blue-100 to-green-100 dark:from-orange-900/20 dark:via-blue-900/20 dark:to-green-900/20 rounded-3xl border-4 border-orange-300 dark:border-orange-500"></div>
+        
+        <div className="relative z-10 space-y-8">
+          <div className="flex justify-center items-center gap-6 mb-8">
+            <img 
+              src="/oc4.png" 
+              alt="CTA Oggy 1" 
+              className="w-20 h-20 rounded-full shadow-xl floating-element bg-white p-2 border-3 border-orange-400"
+            />
+            <img 
+              src="/oc6.png" 
+              alt="Main CTA Oggy" 
+              className="w-24 h-24 rounded-full shadow-2xl bouncing-element bg-gradient-to-br from-white to-orange-50 p-2 border-4 border-orange-500"
+            />
+            <img 
+              src="/oc5.png" 
+              alt="CTA Oggy 2" 
+              className="w-20 h-20 rounded-full shadow-xl wiggling-element bg-white p-2 border-3 border-orange-400"
+            />
+          </div>
+          
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent mb-4">
+            Ready to Join Oggy? 🚀
+          </h2>
+          
+          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+            Start your DeFi adventure today! Let Oggy help you manage your tokens, 
+            grow your wealth, and have fun while doing it! 🎉💰
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Link 
+              href="/banking" 
+              className="group relative inline-flex items-center px-10 py-5 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 text-white font-bold text-xl rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 border-4 border-white"
+            >
+              <span className="mr-4 text-3xl group-hover:animate-spin">🏦</span>
+              Start Your Journey
+              <ArrowRight className="w-6 h-6 ml-4 group-hover:translate-x-2 transition-transform" />
+            </Link>
+            
+            <Link 
+              href="/vesting" 
+              className="group relative inline-flex items-center px-10 py-5 bg-white dark:bg-neutral-800 text-orange-600 dark:text-orange-400 font-bold text-xl rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 border-4 border-orange-400"
+            >
+              <span className="mr-4 text-3xl group-hover:animate-pulse">⏰</span>
+              Learn More
+              <Sparkles className="w-6 h-6 ml-4 group-hover:rotate-180 transition-transform duration-500" />
+            </Link>
+          </div>
+        </div>
+              step: "3",
+              title: "Manage & Earn",
+              description: "Monitor your portfolio and earn yields automatically",
+              emoji: "📈"
+            }
+          ].map((item, index) => (
+            <div key={item.step} className="cartoon-card p-8 text-center">
+              <div className="text-6xl mb-4">{item.emoji}</div>
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                {item.step}
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">{item.title}</h3>
+              <p className="text-gray-600">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="cartoon-card p-12 text-center bg-gradient-to-r from-blue-50 to-green-50">
+        <div className="space-y-6">
+          <div className="flex justify-center space-x-4">
+            <div className="oggy-character floating-element"></div>
+            <div className="text-4xl">💸</div>
+            <div className="cockroach-character bouncing-element"></div>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold oggy-gradient">
+            Ready to Start Your Journey?
+          </h2>
+          
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Join thousands of companies and individuals who trust Oggy Bank 
+            for their token vesting and DeFi banking needs!
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/dashboard" className="cartoon-btn text-lg px-8 py-4">
+              <Zap className="w-5 h-5 mr-2" />
+              Launch Dashboard
+            </Link>
+            <Link href="/account" className="cartoon-btn-secondary text-lg px-8 py-4">
+              <Users className="w-5 h-5 mr-2" />
+              Create Account
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
