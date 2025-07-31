@@ -15,8 +15,8 @@ pub struct Platform {
 #[account]
 pub struct Company {
     pub authority: Pubkey,
-    pub name: [u8; 32], // Fixed size instead of String
-    pub symbol: [u8; 8], // Fixed size instead of String
+    pub name: [u8; 32], 
+    pub symbol: [u8; 8], 
     pub mint: Pubkey,
     pub total_supply: u64,
     pub allocated_supply: u64,

@@ -13,6 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 import { Badge } from '../ui/badge';
 import { Loader2, Coins, TrendingUp, DollarSign, Clock, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import { NetworkErrorHandler, ConnectionStatus } from '../ui/error-boundary';
 
 export function BankingVestingFeature() {
   const { connected, publicKey } = useWallet();
@@ -184,16 +185,19 @@ export function BankingVestingFeature() {
   };
 
   return (
-    <div className="container mx-auto p-6 space-y-8 banking-bg min-h-screen">
-      {/* Header */}
-      <div className="text-center space-y-4 py-8">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-          🐱 Oggy's Banking & Vesting Platform
-        </h1>
-        <p className="text-lg text-gray-700">
-          Comprehensive DeFi banking, token vesting, and wealth management
-        </p>
-      </div>
+    <>
+      <ConnectionStatus />
+      <NetworkErrorHandler>
+        <div className="container mx-auto p-6 space-y-8 banking-bg min-h-screen">
+          {/* Header */}
+          <div className="text-center space-y-4 py-8">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              🐱 Oggy's Banking & Vesting Platform
+            </h1>
+            <p className="text-lg text-gray-700">
+              Comprehensive DeFi banking, token vesting, and wealth management
+            </p>
+          </div>
 
       {/* Platform Status */}
       {platformLoading ? (
@@ -712,6 +716,8 @@ export function BankingVestingFeature() {
           </Card>
         </TabsContent>
       </Tabs>
-    </div>
+        </div>
+      </NetworkErrorHandler>
+    </>
   );
 }

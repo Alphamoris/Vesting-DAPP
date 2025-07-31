@@ -11,7 +11,12 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Button } from '@/components/ui/button'
 import { AppAlert } from '@/components/app-alert'
 
-export function ExplorerLink({ path, label, className }: { path: string; label: string; className?: string }) {
+export function ExplorerLink({ path, label, className, children }: { 
+  path: string; 
+  label: string; 
+  className?: string;
+  children?: React.ReactNode;
+}) {
   const { getExplorerUrl } = useCluster()
   return (
     <a
@@ -20,7 +25,7 @@ export function ExplorerLink({ path, label, className }: { path: string; label: 
       rel="noopener noreferrer"
       className={className ? className : `link font-mono`}
     >
-      {label}
+      {children || label}
     </a>
   )
 }

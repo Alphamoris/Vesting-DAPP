@@ -33,7 +33,7 @@ pub fn calculate_vested_amount(
 }
 
 pub fn calculate_compound_interest(
-    principal: u64,
+    principal: u64, 
     apy_rate: u16,
     time_elapsed: i64,
     compound_frequency: u8,

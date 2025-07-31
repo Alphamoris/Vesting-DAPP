@@ -711,3 +711,68 @@ a:focus-visible {
 .dark .light-text-muted {
   color: #64748b !important;
 }
+
+/* Custom Wallet Button Styling */
+.wallet-container .wallet-adapter-button {
+  background: linear-gradient(135deg, #ea580c 0%, #2563eb 100%) !important;
+  border: 2px solid #fed7aa !important;
+  border-radius: 0.5rem !important;
+  padding: 0.375rem 0.75rem !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  color: white !important;
+  height: auto !important;
+  min-height: 2rem !important;
+  max-height: 2.5rem !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1) !important;
+  white-space: nowrap !important;
+}
+
+.wallet-container .wallet-adapter-button:hover {
+  background: linear-gradient(135deg, #fb923c 0%, #3b82f6 100%) !important;
+  border-color: #fb923c !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.wallet-container .wallet-adapter-button:focus {
+  outline: 2px solid #fb923c !important;
+  outline-offset: 2px !important;
+}
+
+/* .wallet-container .wallet-adapter-button-trigger {
+  background: transparent !important;
+  border: none !important;
+} */
+
+/* Mobile responsive wallet button */
+@media (max-width: 640px) {
+  .wallet-container .wallet-adapter-button {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.625rem !important;
+    min-height: 1.75rem !important;
+    max-height: 2rem !important;
+  }
+}
+
+/* Wallet Icon Styling */
+.wallet-container .wallet-adapter-button .wallet-adapter-button-start-icon {
+  width: 0.875rem !important;
+  height: 0.875rem !important;
+  margin-right: 0.375rem !important;
+}
+
+.wallet-container .wallet-adapter-button .wallet-adapter-button-end-icon {
+  width: 0.875rem !important;
+  height: 0.875rem !important;
+  margin-left: 0.375rem !important;
+}
+
+@media (max-width: 640px) {
+  .wallet-container .wallet-adapter-button .wallet-adapter-button-start-icon,
+  .wallet-container .wallet-adapter-button .wallet-adapter-button-end-icon {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+  }
+}

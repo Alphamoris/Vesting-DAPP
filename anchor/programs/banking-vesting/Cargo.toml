@@ -2,7 +2,7 @@
 name = "banking-vesting"
 version = "0.1.0"
 description = "Comprehensive Banking and Vesting Platform"
-edition = "2021"
+edition = "2025"
 
 [lib]
 crate-type = ["cdylib", "lib"]

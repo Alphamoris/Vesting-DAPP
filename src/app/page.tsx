@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 import { 
   Wallet, 
   TrendingUp, 
@@ -16,19 +15,8 @@ import {
 } from 'lucide-react';
 
 export default function HomePage() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const oggyImages = ['/oc1.png', '/oc2.png', '/oc3.png', '/oc4.png', '/oc5.png'];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % oggyImages.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="min-h-screen page-background">
-      {/* Hero Section */}
+    <div className="min-h-screen page-background">{/* Hero Section */}
       <section className="relative overflow-hidden banking-hero">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(251,146,60,0.4),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(59,130,246,0.4),transparent_50%)]"></div>
@@ -38,7 +26,7 @@ export default function HomePage() {
           <div className="text-center">
             <div className="mb-8 relative">
               <img 
-                src={oggyImages[currentImageIndex]}
+                src='/oc5.png'
                 alt="Oggy Character"
                 className="w-32 h-32 mx-auto bouncing-element transition-all duration-500 ease-in-out"
               />
@@ -101,7 +89,7 @@ export default function HomePage() {
       <section className="py-20 staking-zone">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent mb-4 pb-2">
               Oggy's DeFi Features
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
