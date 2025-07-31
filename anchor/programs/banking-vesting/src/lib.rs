@@ -10,7 +10,7 @@ pub mod utils;
 use instructions::*;
 use state::VestingType;
 
-declare_id!("BankVest11111111111111111111111111111111111");
+declare_id!("B5woVTwykhf4P4MHHawK3GgbHZBTT9Yvig426omjikB1");
 
 #[program]
 pub mod banking_vesting {
