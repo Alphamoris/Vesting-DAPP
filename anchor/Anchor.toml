@@ -7,7 +7,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-banking_vesting = ""
+banking_vesting = "B5woVTwykhf4P4MHHawK3GgbHZBTT9Yvig426omjikB1"
 
 [registry]
 url = "https://api.apr.dev"

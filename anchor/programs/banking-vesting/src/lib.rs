@@ -101,6 +101,18 @@ pub mod banking_vesting {
         instructions::create_savings_account(ctx, apy_rate)
     }
 
+    pub fn compound_interest(ctx: Context<CompoundInterest>) -> Result<()> {
+        instructions::compound_interest(ctx)
+    }
+
+    pub fn deposit_to_savings(ctx: Context<DepositToSavings>, amount: u64) -> Result<()> {
+        instructions::deposit_to_savings(ctx, amount)
+    }
+
+    pub fn withdraw_from_savings(ctx: Context<WithdrawFromSavings>, amount: u64) -> Result<()> {
+        instructions::withdraw_from_savings(ctx, amount)
+    }
+
     pub fn emergency_pause(ctx: Context<EmergencyPause>) -> Result<()> {
         instructions::emergency_pause(ctx)
     }

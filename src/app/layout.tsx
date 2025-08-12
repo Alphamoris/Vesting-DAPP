@@ -5,13 +5,12 @@ import { AppLayout } from '@/components/app-layout'
 import React from 'react'
 
 export const metadata: Metadata = {
-  title: 'Oggy Banking & Vesting Platform | Solana DeFi',
+  title: 'Solana DeFi',
   description: 'The most fun and secure banking & vesting platform on Solana, inspired by Oggy and the Cockroaches',
   keywords: ['Solana', 'DeFi', 'Banking', 'Vesting', 'Oggy', 'Cockroaches', 'Crypto'],
 }
 
 const links: { label: string; path: string }[] = [
-  { label: '🏠 Home', path: '/' },
   { label: '🏦 Banking', path: '/banking' },
   { label: '💎 Vesting', path: '/vesting' },
   { label: '📊 Dashboard', path: '/dashboard' },

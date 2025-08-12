@@ -3,12 +3,16 @@ import { Connection, PublicKey } from '@solana/web3.js';
 import { WalletContextState } from '@solana/wallet-adapter-react';
 import * as bankingVestingIdl from '../../anchor/target/idl/banking_vesting.json';
 import { BankingVesting } from '../../anchor/target/types/banking_vesting';
+import { getDefaultConnection } from './network-config';
 
 export function getBankingVestingProgram(
-  connection: Connection,
-  wallet: WalletContextState
+  connection?: Connection,
+  wallet?: WalletContextState
 ): Program<BankingVesting> {
-  const provider = new AnchorProvider(connection, wallet as any, {
+  // Use default connection if not provided
+  const finalConnection = connection || getDefaultConnection();
+  
+  const provider = new AnchorProvider(finalConnection, wallet as any, {
     commitment: 'confirmed',
   });
   

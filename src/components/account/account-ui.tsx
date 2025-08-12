@@ -27,7 +27,7 @@ export function AccountBalance({ address }: { address: PublicKey }) {
   const query = useGetBalance({ address })
 
   return (
-    <h1 className="text-5xl font-bold cursor-pointer" onClick={() => query.refetch()}>
+    <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold cursor-pointer" onClick={() => query.refetch()}>
       {query.data ? <BalanceSol balance={query.data} /> : '...'} SOL
     </h1>
   )
@@ -91,7 +91,7 @@ export function AccountTokens({ address }: { address: PublicKey }) {
     <div className="space-y-2">
       <div className="justify-between">
         <div className="flex justify-between">
-          <h2 className="text-2xl font-bold">Token Accounts</h2>
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold">Token Accounts</h2>
           <div className="space-x-2">
             {query.isLoading ? (
               <span className="loading loading-spinner"></span>
@@ -117,25 +117,26 @@ export function AccountTokens({ address }: { address: PublicKey }) {
           {query.data.length === 0 ? (
             <div>No token accounts found.</div>
           ) : (
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Public Key</TableHead>
-                  <TableHead>Mint</TableHead>
-                  <TableHead className="text-right">Balance</TableHead>
-                </TableRow>
-              </TableHeader>
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="text-xs sm:text-sm">Public Key</TableHead>
+                    <TableHead className="text-xs sm:text-sm">Mint</TableHead>
+                    <TableHead className="text-right text-xs sm:text-sm">Balance</TableHead>
+                  </TableRow>
+                </TableHeader>
               <TableBody>
                 {items?.map(({ account, pubkey }) => (
                   <TableRow key={pubkey.toString()}>
-                    <TableCell>
+                    <TableCell className="text-xs sm:text-sm">
                       <div className="flex space-x-2">
                         <span className="font-mono">
                           <ExplorerLink label={ellipsify(pubkey.toString())} path={`account/${pubkey.toString()}`} />
                         </span>
                       </div>
                     </TableCell>
-                    <TableCell>
+                    <TableCell className="text-xs sm:text-sm">
                       <div className="flex space-x-2">
                         <span className="font-mono">
                           <ExplorerLink
@@ -145,7 +146,7 @@ export function AccountTokens({ address }: { address: PublicKey }) {
                         </span>
                       </div>
                     </TableCell>
-                    <TableCell className="text-right">
+                    <TableCell className="text-right text-xs sm:text-sm">
                       <span className="font-mono">{account.data.parsed.info.tokenAmount.uiAmount}</span>
                     </TableCell>
                   </TableRow>
@@ -161,7 +162,8 @@ export function AccountTokens({ address }: { address: PublicKey }) {
                   </TableRow>
                 )}
               </TableBody>
-            </Table>
+              </Table>
+            </div>
           )}
         </div>
       )}
@@ -181,7 +183,7 @@ export function AccountTransactions({ address }: { address: PublicKey }) {
   return (
     <div className="space-y-2">
       <div className="flex justify-between">
-        <h2 className="text-2xl font-bold">Transaction History</h2>
+        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold">Transaction History</h2>
         <div className="space-x-2">
           {query.isLoading ? (
             <span className="loading loading-spinner"></span>
@@ -198,26 +200,27 @@ export function AccountTransactions({ address }: { address: PublicKey }) {
           {query.data.length === 0 ? (
             <div>No transactions found.</div>
           ) : (
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Signature</TableHead>
-                  <TableHead className="text-right">Slot</TableHead>
-                  <TableHead>Block Time</TableHead>
-                  <TableHead className="text-right">Status</TableHead>
-                </TableRow>
-              </TableHeader>
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="text-xs sm:text-sm">Signature</TableHead>
+                    <TableHead className="text-right text-xs sm:text-sm">Slot</TableHead>
+                    <TableHead className="text-xs sm:text-sm">Block Time</TableHead>
+                    <TableHead className="text-right text-xs sm:text-sm">Status</TableHead>
+                  </TableRow>
+                </TableHeader>
               <TableBody>
                 {items?.map((item) => (
                   <TableRow key={item.signature}>
-                    <TableHead className="font-mono">
+                    <TableHead className="font-mono text-xs sm:text-sm">
                       <ExplorerLink path={`tx/${item.signature}`} label={ellipsify(item.signature, 8)} />
                     </TableHead>
-                    <TableCell className="font-mono text-right">
+                    <TableCell className="font-mono text-right text-xs sm:text-sm">
                       <ExplorerLink path={`block/${item.slot}`} label={item.slot.toString()} />
                     </TableCell>
-                    <TableCell>{new Date((item.blockTime ?? 0) * 1000).toISOString()}</TableCell>
-                    <TableCell className="text-right">
+                    <TableCell className="text-xs sm:text-sm">{new Date((item.blockTime ?? 0) * 1000).toISOString()}</TableCell>
+                    <TableCell className="text-right text-xs sm:text-sm">
                       {item.err ? (
                         <span className="text-red-500" title={item.err.toString()}>
                           Failed
@@ -238,7 +241,8 @@ export function AccountTransactions({ address }: { address: PublicKey }) {
                   </TableRow>
                 )}
               </TableBody>
-            </Table>
+              </Table>
+            </div>
           )}
         </div>
       )}

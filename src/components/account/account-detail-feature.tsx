@@ -67,15 +67,6 @@ export default function AccountDetailFeature() {
     <div className="min-h-screen relative">
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-orange-50 via-blue-50 to-green-50 py-6 sm:py-8 lg:py-12 px-3 sm:px-4 lg:px-6 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-5 left-5 sm:top-10 sm:left-10 w-12 h-12 sm:w-20 sm:h-20">
-            <img src="/oc2.png" alt="Oggy" className="w-full h-full object-contain animate-bounce" />
-          </div>
-          <div className="absolute top-10 right-10 sm:top-20 sm:right-20 w-10 h-10 sm:w-16 sm:h-16">
-            <img src="/oc3.png" alt="Oggy" className="w-full h-full object-contain" />
-          </div>
-        </div>
 
         <div className="relative max-w-4xl mx-auto">
           <div className="text-center mb-6 sm:mb-8">

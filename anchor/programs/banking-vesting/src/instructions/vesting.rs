@@ -8,6 +8,7 @@ use crate::errors::BankingVestingError;
 use crate::utils::*;
 
 #[derive(Accounts)]
+#[instruction(beneficiary: Pubkey)]
 pub struct CreateVestingSchedule<'info> {
     #[account(
         mut,
@@ -207,11 +208,11 @@ pub fn claim_vested_tokens(ctx: Context<ClaimVestedTokens>) -> Result<()> {
         BankingVestingError::NoTokensAvailable
     );
     
-    let company_key = ctx.accounts.company.key();
+    let company_authority = ctx.accounts.company.authority;
     let company_name = &ctx.accounts.company.name;
     let seeds = &[
         COMPANY_SEED,
-        company_key.as_ref(),
+        company_authority.as_ref(),
         company_name,
         &[ctx.accounts.company.bump],
     ];

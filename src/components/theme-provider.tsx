@@ -9,7 +9,6 @@ export function ThemeProvider({ children, ...props }: React.ComponentProps<typeo
       {...props} 
       forcedTheme="light" 
       defaultTheme="light" 
-      theme="light"
       disableTransitionOnChange={false}
     >
       {children}
