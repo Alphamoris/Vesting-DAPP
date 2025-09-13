@@ -1,0 +1,11 @@
+/home/alpha-45/web3/vesting/anchor/target/sbpf-solana-solana/release/deps/libthiserror-540033855f491def.rmeta: /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/lib.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/aserror.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/display.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/provide.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/var.rs
+
+/home/alpha-45/web3/vesting/anchor/target/sbpf-solana-solana/release/deps/libthiserror-540033855f491def.rlib: /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/lib.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/aserror.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/display.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/provide.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/var.rs
+
+/home/alpha-45/web3/vesting/anchor/target/sbpf-solana-solana/release/deps/thiserror-540033855f491def.d: /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/lib.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/aserror.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/display.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/provide.rs /home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/var.rs
+
+/home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/lib.rs:
+/home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/aserror.rs:
+/home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/display.rs:
+/home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/provide.rs:
+/home/alpha-45/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/var.rs:
