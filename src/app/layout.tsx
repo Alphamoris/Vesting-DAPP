@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 }
 
 const links: { label: string; path: string }[] = [
+  { label: '📊 Dashboard', path: '/dashboard' },
   { label: '🏦 Banking', path: '/banking' },
   { label: '💎 Vesting', path: '/vesting' },
-  { label: '📊 Dashboard', path: '/dashboard' },
   { label: '💰 Staking', path: '/staking' },
   { label: '🏛️ Governance', path: '/governance' },
   { label: '👤 Account', path: '/account' },

@@ -303,10 +303,6 @@ export function AppLayout({ children, links = [] }: AppLayoutProps) {
           </div>
           
           <div className="mt-8 pt-6 border-t border-orange-200 text-center">
-            <div className="flex items-center justify-center gap-3 mb-3">
-              <img src="/oc4.png" alt="Waving Oggy" className="w-6 h-6 rounded-full" />
-              <img src="/oc5.png" alt="Cheerful Oggy" className="w-6 h-6 rounded-full" />
-            </div>
             <p className="text-xs text-gray-500 leading-relaxed">
               © 2025 Dhanush Kumar S • Built with ❤️ on Solana 🚀<br/>
               <span className="text-orange-600 font-medium">

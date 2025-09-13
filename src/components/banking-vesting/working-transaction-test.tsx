@@ -147,6 +147,7 @@ export function WorkingTransactionTest() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-sm">Initialize Platform</CardTitle>
+                <CardDescription>Ensure you have enough funds or else airdrop yourself in the accounts section</CardDescription>
                 <CardDescription>Test platform initialization</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
